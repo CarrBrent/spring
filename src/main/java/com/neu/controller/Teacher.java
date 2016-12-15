@@ -31,6 +31,14 @@ public class Teacher {
 
 	@Autowired
 	private HelloService helloService;
+	@RequestMapping("teacherlogin")
+	public void Login(@RequestParam("tAccount")String tAccount,@RequestParam("tPwd")String tPwd,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		PrintWriter out = response.getWriter();
+		out.print(tAccount);
+		out.flush();
+		out.close();
+		System.out.println("teacherlogin.do  SAccount : "+tAccount+"   SPwd : "+tPwd);
+	}
 
 	@RequestMapping("findcoursebytid")
 	public void findcoursebytid(@RequestParam("TId")String TId,HttpServletRequest request,HttpServletResponse response) throws IOException{
@@ -55,7 +63,7 @@ public class Teacher {
 
 		out.flush();
 		out.close();
-		System.out.println(opts);
+		System.out.println("findcoursebytid.do  "+opts);
 		//return "helloworld";
 	}
 	@RequestMapping("findseminarbycid")
@@ -82,7 +90,7 @@ public class Teacher {
 		
 		out.flush();
 		out.close();
-		System.out.println(opts);
+		System.out.println("findseminarbycid.do  "+opts);
 		//return "helloworld";
 	}
 
