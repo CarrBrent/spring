@@ -4,30 +4,23 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
 import com.neu.bean.Course;
 import com.neu.bean.Seminar;
+import com.neu.bean.Student;
 import com.neu.service.HelloService;
 
 @Controller
-public class Teacher {
+public class TeacherController {
 
 	@Autowired
 	private HelloService helloService;
@@ -91,7 +84,73 @@ public class Teacher {
 		out.flush();
 		out.close();
 		System.out.println("findseminarbycid.do  "+opts);
-		//return "helloworld";
+	}
+	@RequestMapping("findsigninstudentsbyseid")
+	public void findsigninstudentsbyseid(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		response.setContentType("application/json");  
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		List<Student> students = new ArrayList<Student>();
+		
+		Student student = new Student(1,"123@126.com","123pwd","张全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(2,"123@126.com","123pwd","李全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
+		students.add(student);
+		
+		String opts = createJsonString("students",students);
+		out.print(opts);
+		
+		out.flush();
+		out.close();
+		System.out.println("findsigninstudentsbyseid.do  "+opts);
 	}
 
 	public static String  createJsonString(String key,Object value){  
