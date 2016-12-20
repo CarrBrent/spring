@@ -2,19 +2,24 @@ package com.neu.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
+import org.omg.CORBA.DATA_CONVERSION;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.neu.bean.Course;
+import com.neu.bean.GroupVo;
 import com.neu.bean.Seminar;
 import com.neu.bean.Student;
 import com.neu.service.HelloService;
@@ -151,6 +156,36 @@ public class TeacherController {
 		out.flush();
 		out.close();
 		System.out.println("findsigninstudentsbyseid.do  "+opts);
+	}
+	@RequestMapping("grouping")
+	public void grouping(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		response.setContentType("application/json");  
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		List<GroupVo> groups = new ArrayList<GroupVo>();
+		Date date=new Date();
+		
+		GroupVo group = new GroupVo("1组","张三，王五，李四，赵六"+date.toString());
+		groups.add(group);
+		group = new GroupVo("2组","李四，王五，张三，赵六");
+		groups.add(group);
+		group = new GroupVo("3组","王五，张三，李四，赵六");
+		groups.add(group);
+		
+		
+		String gps = createJsonString("groups",groups);
+		
+		out.print(gps);
+		
+		out.flush();
+		out.close();
+		System.out.println("grouping.do  "+gps);
+	}
+	@RequestMapping("groupsubmit")
+	public void groupsubmit(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("groupsubmit.do  "+seId);
 	}
 
 	public static String  createJsonString(String key,Object value){  
