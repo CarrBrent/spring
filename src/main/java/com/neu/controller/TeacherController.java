@@ -187,6 +187,26 @@ public class TeacherController {
 		
 		System.out.println("groupsubmit.do  "+seId);
 	}
+	@RequestMapping("startingroupevaluate")
+	public void startingroupevaluate(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("startingroupevaluate.do  "+seId);
+	}
+	@RequestMapping("endingroupevaluate")
+	public void endingroupevaluate(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("endingroupevaluate.do  "+seId);
+	}
+	@RequestMapping("startoutgroupevaluate")
+	public void startoutgroupevaluate(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("startoutgroupevaluate.do  "+seId);
+	}
+	@RequestMapping("endoutgroupevaluate")
+	public void endoutgroupevaluate(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("endoutgroupevaluate.do  "+seId);
+	}
 
 	public static String  createJsonString(String key,Object value){  
 
