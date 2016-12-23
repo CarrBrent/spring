@@ -5,12 +5,15 @@ import java.io.PrintWriter;
 import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
+import net.sf.json.util.JSONStringer;
 
 import org.omg.CORBA.DATA_CONVERSION;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -206,6 +209,31 @@ public class TeacherController {
 	public void endoutgroupevaluate(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
 		
 		System.out.println("endoutgroupevaluate.do  "+seId);
+	}
+	@RequestMapping("getvotedata")
+	public void getvotedata(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		response.setContentType("application/json");  
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		JSONObject jsonObject=new JSONObject();  
+		jsonObject.put("A", 10); 
+		jsonObject.put("B", 15); 
+		jsonObject.put("C", 1); 
+		jsonObject.put("D", 15); 
+
+
+
+		out.print(jsonObject.toString());
+
+		out.flush();
+		out.close();
+		System.out.println("getvotedata.do  "+jsonObject.toString());
+	}
+	@RequestMapping("startvote")
+	public void startvote(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("startvote.do  ");
 	}
 
 	public static String  createJsonString(String key,Object value){  
