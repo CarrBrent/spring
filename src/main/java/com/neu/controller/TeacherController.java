@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.neu.bean.Course;
 import com.neu.bean.GroupVo;
 import com.neu.bean.Seminar;
+import com.neu.bean.SeminarStudentNo;
 import com.neu.bean.Student;
 import com.neu.service.HelloService;
 
@@ -234,6 +235,36 @@ public class TeacherController {
 	public void startvote(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		
 		System.out.println("startvote.do  ");
+	}
+	@RequestMapping("startcourseselect")
+	public void startcourseselect(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("startcourseselect.do  ");
+	}
+	@RequestMapping("findseminarstudentsnumberbycid")
+	public void findseminarstudentsnumberbycid(@RequestParam("cId")String cId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+
+		response.setContentType("application/json");  
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+
+		List<SeminarStudentNo> nos = new ArrayList<SeminarStudentNo>();
+
+		SeminarStudentNo number = new SeminarStudentNo("数据仓库研讨课1",10);
+		nos.add(number);
+		
+		number = new SeminarStudentNo("数据仓库研讨课2",20);
+		nos.add(number);
+		
+		number = new SeminarStudentNo("数据仓库研讨课3",30);
+		nos.add(number);
+
+		String opts = createJsonString("numbers",nos);
+		out.print(opts);
+
+		out.flush();
+		out.close();
+		System.out.println("findseminarstudentsnumberbycid.do  "+opts);
 	}
 
 	public static String  createJsonString(String key,Object value){  
