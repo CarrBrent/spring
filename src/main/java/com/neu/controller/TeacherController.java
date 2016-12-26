@@ -26,6 +26,7 @@ import com.neu.bean.GroupVo;
 import com.neu.bean.Seminar;
 import com.neu.bean.SeminarStudentNo;
 import com.neu.bean.Student;
+import com.neu.bean.StudentEvaluateVo;
 import com.neu.service.HelloService;
 
 @Controller
@@ -315,6 +316,31 @@ public class TeacherController {
 		out.flush();
 		out.close();
 		System.out.println("startexerciserush.do  "+jsonObject.toString());
+	}
+	@RequestMapping("findstudentsbyseid")
+	public void findstudentsbyseid(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+
+		response.setContentType("application/json");  
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+
+		List<StudentEvaluateVo> students = new ArrayList<StudentEvaluateVo>();
+
+		StudentEvaluateVo stu = new StudentEvaluateVo(1,"张三","No");
+		students.add(stu);
+		
+		stu = new StudentEvaluateVo(2,"李四","No");
+		students.add(stu);
+		
+		stu = new StudentEvaluateVo(3,"王五","No");
+		students.add(stu);
+
+		String opts = createJsonString("students",students);
+		out.print(opts);
+
+		out.flush();
+		out.close();
+		System.out.println("findstudentsbyseid.do  "+opts);
 	}
 
 	public static String  createJsonString(String key,Object value){  
