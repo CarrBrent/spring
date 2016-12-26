@@ -266,6 +266,34 @@ public class TeacherController {
 		out.close();
 		System.out.println("findseminarstudentsnumberbycid.do  "+opts);
 	}
+	@RequestMapping("findexerciseinfo")
+	public void findexerciseinfo(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		response.setContentType("application/json");  
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		JSONObject jsonObject=new JSONObject();  
+		jsonObject.put("number", 10); 
+		jsonObject.put("time", 7); 
+
+
+		out.print(jsonObject.toString());
+
+		out.flush();
+		out.close();
+		System.out.println("findexerciseinfo.do  "+jsonObject.toString());
+	}
+	@RequestMapping("starttimelimitexercise")
+	public void starttimelimitexercise(@RequestParam("seId")String seId,@RequestParam("time")String time,
+			@RequestParam("number")String number,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("starttimelimitexercise.do  "+"seId:"+seId+"time:"+time+"number:"+number);
+	}
+	@RequestMapping("endtimelimitexercise")
+	public void endtimelimitexercise(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("endtimelimitexercise.do  "+"seId:"+seId);
+	}
 
 	public static String  createJsonString(String key,Object value){  
 
