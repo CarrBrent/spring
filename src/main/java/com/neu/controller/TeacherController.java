@@ -294,6 +294,28 @@ public class TeacherController {
 		
 		System.out.println("endtimelimitexercise.do  "+"seId:"+seId);
 	}
+	@RequestMapping("exerciserushsubmit")
+	public void exerciserushsubmit(@RequestParam("seId")String seId,@RequestParam("sId")String sId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("exerciserushsubmit.do  "+seId +sId);
+	}
+	@RequestMapping("startexerciserush")//开始抢答功能开启之后，才能进行抢答，当出现同学抢答成功时，应该关闭抢答功能，并将学生信息返回
+	public void startexerciserush(@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		response.setContentType("application/json");  
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		JSONObject jsonObject=new JSONObject();  
+		jsonObject.put("name","张三"); 
+		jsonObject.put("sId","16161616"); 
+
+
+		out.print(jsonObject.toString());
+
+		out.flush();
+		out.close();
+		System.out.println("startexerciserush.do  "+jsonObject.toString());
+	}
 
 	public static String  createJsonString(String key,Object value){  
 
