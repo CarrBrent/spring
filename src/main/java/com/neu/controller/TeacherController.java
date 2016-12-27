@@ -342,6 +342,16 @@ public class TeacherController {
 		out.close();
 		System.out.println("findstudentsbyseid.do  "+opts);
 	}
+	@RequestMapping("teacherevaluatesubmit")
+	public void teacherevaluatesubmit(
+			@RequestParam("seId")String seId,@RequestParam("sId")String sId,
+			@RequestParam("positivity")String positivity,
+			@RequestParam("communicate")String communicate,
+			@RequestParam("keypoint")String keypoint,
+			HttpServletRequest request,HttpServletResponse response) throws IOException{
+		
+		System.out.println("teacherevaluatesubmit.do  "+seId +sId+positivity+communicate+keypoint);
+	}
 
 	public static String  createJsonString(String key,Object value){  
 
