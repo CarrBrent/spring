@@ -631,10 +631,7 @@ public class TeacherController {
 	 */
 	@RequestMapping("teacherevaluatesubmit")
 	public void teacherevaluatesubmit(
-			@RequestParam("seId")String seId,@RequestParam("sId")String sId,
-			@RequestParam("positivity")String positivity,
-			@RequestParam("communicate")String communicate,
-			@RequestParam("keypoint")String keypoint,
+			@RequestParam("evaluations")String evaluations,
 			HttpServletRequest request,HttpServletResponse response) throws IOException{
 		/**
 		 * 需要实现
@@ -643,7 +640,7 @@ public class TeacherController {
 		 */
 
 		//忽略该行，system.out用于测试，实际编码中不需要实现
-		System.out.println("teacherevaluatesubmit.do  "+seId +sId+positivity+communicate+keypoint);
+		System.out.println("teacherevaluatesubmit.do  "+evaluations);
 	}
 	/**
 	 * 
@@ -669,11 +666,11 @@ public class TeacherController {
 
 		//将查询到的信息添加到List<EvaluateKeys> students
 		List<EvaluateKeys> keys = new ArrayList<EvaluateKeys>();
-		EvaluateKeys key = new EvaluateKeys("学习能力");
+		EvaluateKeys key = new EvaluateKeys(1,"学习能力","");
 		keys.add(key);
-		key = new EvaluateKeys("协作能力");
+		key = new EvaluateKeys(2,"协作能力","");
 		keys.add(key);
-		key = new EvaluateKeys("课堂积极性");
+		key = new EvaluateKeys(3,"课堂积极性","");
 		keys.add(key);
 
 		//转化成JsonString
@@ -683,7 +680,7 @@ public class TeacherController {
 		out.close();
 
 		//忽略该行，system.out用于测试，实际编码中不需要实现
-		System.out.println("teacherevaluatesubmit.do  "+cId +eeName);
+		System.out.println("teacherevaluatesubmit.do  "+ opts+cId +eeName);
 	}
 
 
