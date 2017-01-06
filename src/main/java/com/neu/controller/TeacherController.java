@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.neu.bean.Course;
+import com.neu.bean.EvaluateKeys;
 import com.neu.bean.GroupVo;
 import com.neu.bean.Seminar;
 import com.neu.bean.SeminarStudentNo;
@@ -34,11 +35,11 @@ public class TeacherController {
 
 	@Autowired
 	private HelloService helloService;
-	
+
 	@RequestMapping("teacherlogin")
 	public void Login(@RequestParam("tAccount")String tAccount,@RequestParam("tPwd")String tPwd,
 			HttpServletRequest request,HttpServletResponse response) throws IOException{
-		
+
 		PrintWriter out = response.getWriter();
 		out.print(tAccount);
 		out.flush();
@@ -57,7 +58,7 @@ public class TeacherController {
 	 * 返回值  List<Course> myclass
 	 * 
 	 */
-	
+
 	@RequestMapping("findcoursebytid")
 	public void findcoursebytid(@RequestParam("TId")String TId,
 			HttpServletRequest request,HttpServletResponse response) throws IOException{
@@ -66,13 +67,13 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层，查找TId的教师的所有课程。
 		 */
-		
+
 		//定义response的各种参数
 		response.setContentType("application/json");  
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		List<Course> myclass = new ArrayList<Course>();
-		
+
 		//需要实现
 		//该处将查找出的Course添加到List中
 		Course course = new Course(1,1,"#001","数据仓库","2016年第一学期");
@@ -91,8 +92,8 @@ public class TeacherController {
 		System.out.println("findcoursebytid.do  "+opts);
 		//return "helloworld";
 	}
-	
-	
+
+
 	/**
 	 * 
 	 * @param CId
@@ -106,27 +107,27 @@ public class TeacherController {
 	 */
 	@RequestMapping("findseminarbycid")
 	public void findseminarbycid(@RequestParam("CId")String CId,HttpServletRequest request,HttpServletResponse response) throws IOException{
-		
+
 		/**
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层，查找CId的课程下的所有研讨课。
 		 */
-		
+
 		//定义response的各种参数
 		response.setContentType("application/json");  
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		List<Seminar> seminars = new ArrayList<Seminar>();
-		
+
 		//需要实现
-	    //该处将查找出的Seminar添加到List中
+		//该处将查找出的Seminar添加到List中
 		Seminar seminar = new Seminar(1,1,"数据仓库研讨课1","第一课时",new Date(),20,30);
 		seminars.add(seminar);
-	    seminar = new Seminar(2,1,"数据仓库研讨课2","第二课时",new Date(),30,40);
+		seminar = new Seminar(2,1,"数据仓库研讨课2","第二课时",new Date(),30,40);
 		seminars.add(seminar);
 		seminar = new Seminar(3,1,"数据仓库研讨课3","第三课时",new Date(),40,50);
 		seminars.add(seminar);
-		
+
 		//转化成JsonString
 		String opts = createJsonString("seminars",seminars);
 		out.print(opts);
@@ -152,14 +153,14 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层，查找seId的课程下的已签到的学生列表。
 		 */
-		
+
 		//定义response的各种参数
 		response.setContentType("application/json");  
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		
+
 		//需要实现
-	    //该处将查找出的Student添加到List中
+		//该处将查找出的Student添加到List中
 		List<Student> students = new ArrayList<Student>();
 		Student student = new Student(1,"123@126.com","123pwd","张全蛋","15040302010");
 		students.add(student);
@@ -175,8 +176,8 @@ public class TeacherController {
 		students.add(student);
 		student = new Student(3,"123@126.com","123pwd","王全蛋","15040302010");
 		students.add(student);
-		
-		
+
+
 		//转化成JsonString
 		String opts = createJsonString("students",students);
 		out.print(opts);
@@ -185,7 +186,7 @@ public class TeacherController {
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("findsigninstudentsbyseid.do  "+opts);
 	}
-	
+
 	/**
 	 * 
 	 * @param seId
@@ -201,22 +202,22 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层，对seId研讨课中的学生进行分组，并返回分组结果。
 		 */
-		
+
 		//定义response的各种参数
 		response.setContentType("application/json");  
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		List<GroupVo> groups = new ArrayList<GroupVo>();
-		
+
 		//需要实现
-	    //该处将查找出的GroupVo添加到List中
+		//该处将查找出的GroupVo添加到List中
 		GroupVo group = new GroupVo("1组","张三，王五，李四，赵六");
 		groups.add(group);
 		group = new GroupVo("2组","李四，王五，张三，赵六");
 		groups.add(group);
 		group = new GroupVo("3组","王五，张三，李四，赵六");
 		groups.add(group);
-		
+
 		//转化成JsonString
 		String gps = createJsonString("groups",groups);
 		out.print(gps);
@@ -242,7 +243,7 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层的分组结果确认的方法，传入参数seId。
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("groupsubmit.do  "+seId);
 	}
@@ -263,7 +264,7 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("startingroupevaluate.do  "+seId);
 	}
@@ -284,7 +285,7 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("endingroupevaluate.do  "+seId);
 	}
@@ -306,7 +307,7 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("startoutgroupevaluate.do  "+seId);
 	}
@@ -324,7 +325,7 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("endoutgroupevaluate.do  "+seId);
 	}
@@ -345,14 +346,14 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层，查询当前投票题投票数据。
 		 */
-		
+
 		//定义response的各种参数
 		response.setContentType("application/json");  
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 
 		//需要实现
-	    //该处将查找出的投票数据添加到jsonObject中
+		//该处将查找出的投票数据添加到jsonObject中
 		JSONObject jsonObject=new JSONObject();  
 		jsonObject.put("A", 10); 
 		jsonObject.put("B", 15); 
@@ -383,7 +384,7 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("startvote.do  ");
 	}
@@ -403,7 +404,7 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("startcourseselect.do  ");
 	}
@@ -429,7 +430,7 @@ public class TeacherController {
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		//需要实现
-	    //该处将查找出的学生数添加到List<SeminarStudentNo>中
+		//该处将查找出的学生数添加到List<SeminarStudentNo>中
 		List<SeminarStudentNo> nos = new ArrayList<SeminarStudentNo>();
 		SeminarStudentNo number = new SeminarStudentNo("数据仓库研讨课1",10);
 		nos.add(number);
@@ -437,7 +438,7 @@ public class TeacherController {
 		nos.add(number);
 		number = new SeminarStudentNo("数据仓库研讨课3",30);
 		nos.add(number);
-		
+
 		//转化成JsonString
 		String opts = createJsonString("numbers",nos);
 		out.print(opts);
@@ -460,14 +461,14 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层查找默认的限时练习题数量和时间
 		 */
-		
+
 		//定义response的各种参数
 		response.setContentType("application/json");  
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		
+
 		//需要实现
-	    //该处将查找出的数量和时间添加到jsonObject
+		//该处将查找出的数量和时间添加到jsonObject
 		JSONObject jsonObject=new JSONObject();  
 		jsonObject.put("number", 10); 
 		jsonObject.put("time", 7); 
@@ -498,7 +499,7 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("starttimelimitexercise.do  "+"seId:"+seId+"time:"+time+"number:"+number);
 	}
@@ -517,7 +518,7 @@ public class TeacherController {
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("endtimelimitexercise.do  "+"seId:"+seId);
 	}
@@ -532,14 +533,14 @@ public class TeacherController {
 	 * 抢答题，确定答题学生
 	 * 
 	 */
-	
+
 	@RequestMapping("exerciserushsubmit")
 	public void exerciserushsubmit(@RequestParam("seId")String seId,@RequestParam("sId")String sId,HttpServletRequest request,HttpServletResponse response) throws IOException{
 		/**
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("exerciserushsubmit.do  "+seId +sId);
 	}
@@ -564,9 +565,9 @@ public class TeacherController {
 		response.setContentType("application/json");  
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		
+
 		//需要实现
-	    //该处将查找出的学生信息添加到jsonObject
+		//该处将查找出的学生信息添加到jsonObject
 		JSONObject jsonObject=new JSONObject();  
 		jsonObject.put("name","张三");  //jsonObject中的key不能改变只能修改value
 		jsonObject.put("sId","16161616"); 
@@ -597,7 +598,7 @@ public class TeacherController {
 		response.setContentType("application/json");  
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		
+
 		//将查询到的信息添加到List<StudentEvaluateVo> students
 		List<StudentEvaluateVo> students = new ArrayList<StudentEvaluateVo>();
 		StudentEvaluateVo stu = new StudentEvaluateVo(1,"张三","No");
@@ -606,8 +607,8 @@ public class TeacherController {
 		students.add(stu);
 		stu = new StudentEvaluateVo(3,"王五","No");
 		students.add(stu);
-		
-		
+
+
 		//转化成JsonString
 		String opts = createJsonString("students",students);
 		out.print(opts);
@@ -640,10 +641,51 @@ public class TeacherController {
 		 * 在这里实现自己的代码，调用service层submit教师评价信息
 		 * 
 		 */
-		
+
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("teacherevaluatesubmit.do  "+seId +sId+positivity+communicate+keypoint);
 	}
+	/**
+	 * 
+	 * @param cId
+	 * @param eeName
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 */
+	@RequestMapping("findteacherevaluatekeys")
+	public void findteacherevaluatekeys(
+			@RequestParam("cId")String cId,@RequestParam("eeName")String eeName,
+			HttpServletRequest request,HttpServletResponse response) throws IOException{
+		/**
+		 * 需要实现
+		 * 在这里实现自己的代码，调用service层查找教师评价项目
+		 * 
+		 */
+		//定义response的各种参数
+		response.setContentType("application/json");  
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+
+		//将查询到的信息添加到List<EvaluateKeys> students
+		List<EvaluateKeys> keys = new ArrayList<EvaluateKeys>();
+		EvaluateKeys key = new EvaluateKeys("学习能力");
+		keys.add(key);
+		key = new EvaluateKeys("协作能力");
+		keys.add(key);
+		key = new EvaluateKeys("课堂积极性");
+		keys.add(key);
+
+		//转化成JsonString
+		String opts = createJsonString("keys",keys);
+		out.print(opts);
+		out.flush();
+		out.close();
+
+		//忽略该行，system.out用于测试，实际编码中不需要实现
+		System.out.println("teacherevaluatesubmit.do  "+cId +eeName);
+	}
+
 
 	/**
 	 * 
