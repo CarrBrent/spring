@@ -121,11 +121,11 @@ public class TeacherController {
 
 		//需要实现
 		//该处将查找出的Seminar添加到List中
-		Seminar seminar = new Seminar(1,1,"数据仓库研讨课1","第一课时",new Date(),20,30);
+		Seminar seminar = new Seminar(1,1,1,"数据仓库","数据仓库研讨课1","第一课时","星期天",20,30,"王老师");
 		seminars.add(seminar);
-		seminar = new Seminar(2,1,"数据仓库研讨课2","第二课时",new Date(),30,40);
+		seminar = new Seminar(2,1,1,"数据仓库","数据仓库研讨课2","第二课时","星期天",30,40,"王老师");
 		seminars.add(seminar);
-		seminar = new Seminar(3,1,"数据仓库研讨课3","第三课时",new Date(),40,50);
+		seminar = new Seminar(3,1,1,"数据仓库","数据仓库研讨课3","第三课时","星期天",40,50,"王老师");
 		seminars.add(seminar);
 
 		//转化成JsonString
