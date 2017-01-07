@@ -1,16 +1,23 @@
 package com.neu.bean;
 
 public class Student {
-	private int sId;
+	private int sid;
 	private String sAccount;
 	private String sPwd;
-	private String sName;
+	private String sname;
 	private String sPhone;
-	public int getsId() {
-		return sId;
+	
+	public int getSid() {
+		return sid;
 	}
-	public void setsId(int sId) {
-		this.sId = sId;
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+	public String getSname() {
+		return sname;
+	}
+	public void setSname(String sname) {
+		this.sname = sname;
 	}
 	public String getsAccount() {
 		return sAccount;
@@ -24,12 +31,7 @@ public class Student {
 	public void setsPwd(String sPwd) {
 		this.sPwd = sPwd;
 	}
-	public String getsName() {
-		return sName;
-	}
-	public void setsName(String sName) {
-		this.sName = sName;
-	}
+	
 	public String getsPhone() {
 		return sPhone;
 	}
@@ -37,9 +39,9 @@ public class Student {
 		this.sPhone = sPhone;
 	}
 	public Student(int sId,String sAccount,String sPwd,String sName,String sPhone){
-		this.setsId(sId);
+		this.setSid(sId);
+		this.setSname(sName);
 		this.setsAccount(sAccount);
-		this.setsName(sName);
 		this.setsPwd(sPwd);
 		this.setsPhone(sPhone);
 	}
