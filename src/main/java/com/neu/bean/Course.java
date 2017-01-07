@@ -1,48 +1,58 @@
 package com.neu.bean;
 
 public class Course {
-	private int CId;
-	private int TId;
-	private String CNumber;
-	private String CName;
-	private String CTerm;
-	public Course(int i, int j, String string, String string2, String string3) {
+	private Integer cid;
+	private String cnumber;
+	private String cname;
+	private String cterm;
+	
+	private Integer tid;
+	private String tname;
+	
+	public Course(int cid, int tid, String cnumber, String cname, String cterm,String tname) {
 		// TODO Auto-generated constructor stub
-		this.CId = i;
-		this.TId = j;
-		this.CNumber = string;
-		this.CName = string2;
-		this.CTerm = string3;
+		this.setCid(cid);
+		this.setCname(cname);
+		this.setCnumber(cnumber);
+		this.setCterm(cterm);
+		this.setTid(tid);
+		this.setTname(tname);
 	}
-	public int getCId() {
-		return CId;
+	public Integer getCid() {
+		return cid;
 	}
-	public void setCId(int cId) {
-		CId = cId;
+	public void setCid(Integer cid) {
+		this.cid = cid;
 	}
-	public int getTId() {
-		return TId;
+	public String getCnumber() {
+		return cnumber;
 	}
-	public void setTId(int tId) {
-		TId = tId;
+	public void setCnumber(String cnumber) {
+		this.cnumber = cnumber;
 	}
-	public String getCNumber() {
-		return CNumber;
+	public String getCname() {
+		return cname;
 	}
-	public void setCNumber(String cNumber) {
-		CNumber = cNumber;
+	public void setCname(String cname) {
+		this.cname = cname;
 	}
-	public String getCName() {
-		return CName;
+	public String getCterm() {
+		return cterm;
 	}
-	public void setCName(String cName) {
-		CName = cName;
+	public void setCterm(String cterm) {
+		this.cterm = cterm;
 	}
-	public String getCTerm() {
-		return CTerm;
+	public Integer getTid() {
+		return tid;
 	}
-	public void setCTerm(String cTerm) {
-		CTerm = cTerm;
+	public void setTid(Integer tid) {
+		this.tid = tid;
+	}
+	public String getTname() {
+		return tname;
+	}
+	public void setTname(String tname) {
+		this.tname = tname;
 	}
 	
 }

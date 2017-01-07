@@ -76,11 +76,11 @@ public class TeacherController {
 
 		//需要实现
 		//该处将查找出的Course添加到List中
-		Course course = new Course(1,1,"#001","数据仓库","2016年第一学期");
+		Course course = new Course(1,1,"#001","数据仓库","2016年第一学期","王老师");
 		myclass.add(course);
-		course = new Course(2,1,"#002","高级软件工程","2016年第二学期");
+		course = new Course(2,1,"#002","高级软件工程","2016年第二学期","王老师");
 		myclass.add(course);
-		course = new Course(3,1,"#003","数据结构","2016年第一学期");
+		course = new Course(3,1,"#003","数据结构","2016年第一学期","王老师");
 		myclass.add(course);
 
 		//该处将list转化成JsonString返回
@@ -680,7 +680,7 @@ public class TeacherController {
 		out.close();
 
 		//忽略该行，system.out用于测试，实际编码中不需要实现
-		System.out.println("teacherevaluatesubmit.do  "+ opts+cId +eeName);
+		System.out.println("findteacherevaluatekeys.do  "+ opts+cId +eeName);
 	}
 
 
