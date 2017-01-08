@@ -399,7 +399,7 @@ public class TeacherController {
 		System.out.println("endvote.do  ");
 	}
 	/**
-	 * 
+	 * @param cId
 	 * @param request
 	 * @param response
 	 * @throws IOException
@@ -409,14 +409,13 @@ public class TeacherController {
 	 * 无返回值
 	 */
 	@RequestMapping("startcourseselect")
-	public void startcourseselect(HttpServletRequest request,HttpServletResponse response) throws IOException{
+	public void startcourseselect(@RequestParam("cId")String cId,HttpServletRequest request,HttpServletResponse response) throws IOException{
 		/**
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
-
 		//忽略该行，system.out用于测试，实际编码中不需要实现
-		System.out.println("startcourseselect.do  ");
+		System.out.println("startcourseselect.do   cId:"+cId);
 	}
 	/**
 	 * 
