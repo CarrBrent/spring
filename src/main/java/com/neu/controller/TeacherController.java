@@ -574,14 +574,14 @@ public class TeacherController {
 	 */
 
 	@RequestMapping("exerciserushsubmit")
-	public void exerciserushsubmit(@RequestParam("seId")String seId,@RequestParam("sId")String sId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+	public void exerciserushsubmit(@RequestParam("rushId")String rushId,@RequestParam("seId")String seId,@RequestParam("sId")String sId,HttpServletRequest request,HttpServletResponse response) throws IOException{
 		/**
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
 
 		//忽略该行，system.out用于测试，实际编码中不需要实现
-		System.out.println("exerciserushsubmit.do  "+seId +sId);
+		System.out.println("exerciserushsubmit.do  "+rushId+"    "+seId+"    "+sId);
 	}
 	/**
 	 * 
@@ -610,11 +610,46 @@ public class TeacherController {
 		JSONObject jsonObject=new JSONObject();  
 		jsonObject.put("name","张三");  //jsonObject中的key不能改变只能修改value
 		jsonObject.put("sId","16161616"); 
+		jsonObject.put("rushId","666"); 
 		out.print(jsonObject.toString());
 		out.flush();
 		out.close();
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("startexerciserush.do  "+jsonObject.toString());
+	}
+	/**
+	 * 
+	 * @param seId
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 * 开始抢答
+	 * 有可能需要标志位
+	 */
+	@RequestMapping("reexerciserush")//
+	public void reexerciserush(@RequestParam("rushId")String rushId,@RequestParam("seId")String seId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		/**
+		 * 需要实现
+		 * 在这里实现自己的代码，调用service层开始抢答，返回学生信息
+		 * 开始抢答功能开启之后，才能进行抢答，当出现同学抢答成功时，应该关闭抢答功能，并将学生信息返回，以上功能应该在service中实现
+		 * 
+		 */
+		//定义response的各种参数
+		response.setContentType("application/json");  
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		//需要实现
+		//该处将查找出的学生信息添加到jsonObject
+		JSONObject jsonObject=new JSONObject();  
+		jsonObject.put("name","张三");  //jsonObject中的key不能改变只能修改value
+		jsonObject.put("sId","16161616"); 
+		jsonObject.put("rushId","555"); 
+		out.print(jsonObject.toString());
+		out.flush();
+		out.close();
+		//忽略该行，system.out用于测试，实际编码中不需要实现
+		System.out.println("reexerciserush.do  "+jsonObject.toString());
 	}
 	/**
 	 * 
