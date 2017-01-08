@@ -511,7 +511,6 @@ public class TeacherController {
 	/**
 	 * 
 	 * @param seId
-	 * @param time
 	 * @param number
 	 * @param request
 	 * @param response
@@ -521,7 +520,7 @@ public class TeacherController {
 	 * 有可能需要标志位
 	 */
 	@RequestMapping("starttimelimitexercise")
-	public void starttimelimitexercise(@RequestParam("seId")String seId,@RequestParam("time")String time,
+	public void starttimelimitexercise(@RequestParam("seId")String seId,
 			@RequestParam("number")String number,HttpServletRequest request,HttpServletResponse response) throws IOException{
 		/**
 		 * 需要实现
@@ -529,7 +528,7 @@ public class TeacherController {
 		 */
 
 		//忽略该行，system.out用于测试，实际编码中不需要实现
-		System.out.println("starttimelimitexercise.do  "+"seId:"+seId+"time:"+time+"number:"+number);
+		System.out.println("starttimelimitexercise.do  "+"seId:"+seId+"number:"+number);
 	}
 	/**
 	 * 
