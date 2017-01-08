@@ -418,6 +418,25 @@ public class TeacherController {
 		System.out.println("startcourseselect.do   cId:"+cId);
 	}
 	/**
+	 * @param cId
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 * 
+	 * 选课结束
+	 * 有可能需要添加标志位
+	 * 无返回值
+	 */
+	@RequestMapping("endcourseselect")
+	public void endcourseselect(@RequestParam("cId")String cId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		/**
+		 * 需要实现
+		 * 在这里实现自己的代码，调用service层
+		 */
+		//忽略该行，system.out用于测试，实际编码中不需要实现
+		System.out.println("endcourseselect.do   cId:"+cId);
+	}
+	/**
 	 * 
 	 * @param cId
 	 * @param request
