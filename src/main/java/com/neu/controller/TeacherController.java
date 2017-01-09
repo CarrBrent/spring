@@ -675,11 +675,11 @@ public class TeacherController {
 
 		//将查询到的信息添加到List<StudentEvaluateVo> students
 		List<StudentEvaluateVo> students = new ArrayList<StudentEvaluateVo>();
-		StudentEvaluateVo stu = new StudentEvaluateVo(1,"张三","No");
+		StudentEvaluateVo stu = new StudentEvaluateVo(11001,"张三");
 		students.add(stu);
-		stu = new StudentEvaluateVo(2,"李四","No");
+		stu = new StudentEvaluateVo(11002,"李四");
 		students.add(stu);
-		stu = new StudentEvaluateVo(3,"王五","No");
+		stu = new StudentEvaluateVo(11003,"王五");
 		students.add(stu);
 
 
