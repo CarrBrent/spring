@@ -401,14 +401,14 @@ public class TeacherController {
 		System.out.println("startvote.do  ");
 	}
 	@RequestMapping("endvote")
-	public void endvote(HttpServletRequest request,HttpServletResponse response) throws IOException{
+	public void endvote(@RequestParam("vqid")String vqid,HttpServletRequest request,HttpServletResponse response) throws IOException{
 		/**
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
 		 */
 
 		//忽略该行，system.out用于测试，实际编码中不需要实现
-		System.out.println("endvote.do  ");
+		System.out.println("endvote.do  vqid:"+vqid);
 	}
 	/**
 	 * @param cId
