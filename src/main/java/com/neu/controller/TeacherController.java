@@ -2,20 +2,19 @@ package com.neu.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.acl.Group;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import net.sf.json.util.JSONStringer;
+import net.sf.json.JSONString;
 
-import org.omg.CORBA.DATA_CONVERSION;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.neu.bean.Course;
 import com.neu.bean.EvaluateKeys;
+import com.neu.bean.EvaluationVo;
 import com.neu.bean.GroupVo;
 import com.neu.bean.Seminar;
 import com.neu.bean.SeminarStudentNo;
@@ -712,7 +712,16 @@ public class TeacherController {
 		 * 在这里实现自己的代码，调用service层submit教师评价信息
 		 * 
 		 */
-
+		List<EvaluationVo> list = new ArrayList<EvaluationVo>();
+		//Evaluation evaluation = new Evaluation();
+		EvaluationVo evaluation;
+		JSONObject jsonObject= JSONObject.fromObject(evaluations);
+		JSONArray jsonArray = jsonObject.getJSONArray("evaluations");
+		for (int i = 0; i < jsonArray.size(); i++) {  
+			JSONObject jsonObject2 = jsonArray.getJSONObject(i);
+			evaluation = new EvaluationVo(jsonObject2.getInt("seId"),jsonObject2.getInt("sId"),jsonObject2.getInt("eeId"),jsonObject2.getString("evalRank"));
+			list.add(evaluation);
+		}
 		//忽略该行，system.out用于测试，实际编码中不需要实现
 		System.out.println("teacherevaluatesubmit.do  "+evaluations);
 	}
