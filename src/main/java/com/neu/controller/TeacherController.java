@@ -35,13 +35,26 @@ public class TeacherController {
 
 	@Autowired
 	private HelloService helloService;
+	
+	@RequestMapping("findteacherbyid")
+	public void Finduserbyid(@RequestParam("tId")String tId,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		PrintWriter out = response.getWriter();
+		JSONObject jsonObject=new JSONObject();  
+		jsonObject.put("tId", "123"); 
+		out.print(jsonObject.toString());
+		out.flush();
+		out.close();
+		System.out.println("findteacherbyid() tId : "+tId);
+	}
 
 	@RequestMapping("teacherlogin")
 	public void Login(@RequestParam("tAccount")String tAccount,@RequestParam("tPwd")String tPwd,
 			HttpServletRequest request,HttpServletResponse response) throws IOException{
 
 		PrintWriter out = response.getWriter();
-		out.print(tAccount);
+		JSONObject jsonObject=new JSONObject();  
+		jsonObject.put("tId", "123"); 
+		out.print(jsonObject.toString());
 		out.flush();
 		out.close();
 		System.out.println("teacherlogin.do  SAccount : "+tAccount+"   SPwd : "+tPwd);
