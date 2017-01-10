@@ -392,7 +392,7 @@ public class TeacherController {
 	 * 无返回值
 	 */
 	@RequestMapping("startvote")
-	public void startvote(HttpServletRequest request,HttpServletResponse response) throws IOException{
+	public void startvote(@RequestParam("seId")String seId,@RequestParam("correctAnswer")String correctAnswer,HttpServletRequest request,HttpServletResponse response) throws IOException{
 		/**
 		 * 需要实现
 		 * 在这里实现自己的代码，调用service层
@@ -405,13 +405,13 @@ public class TeacherController {
 		//需要实现
 		//该处将查找出的投票数据添加到jsonObject中
 		JSONObject jsonObject=new JSONObject();  
-		jsonObject.put("voteId", 10); 
+		jsonObject.put("qvid", 10); 
 		
 		out.print(jsonObject.toString());
 		out.flush();
 		out.close();
 		//忽略该行，system.out用于测试，实际编码中不需要实现
-		System.out.println("startvote.do  ");
+		System.out.println("startvote.do  correctAnswer:"+correctAnswer+"seId:"+seId);
 	}
 	@RequestMapping("endvote")
 	public void endvote(@RequestParam("vqid")String vqid,HttpServletRequest request,HttpServletResponse response) throws IOException{
