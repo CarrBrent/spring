@@ -622,8 +622,8 @@ public class TeacherController {
 		//该处将查找出的学生信息添加到jsonObject
 		JSONObject jsonObject=new JSONObject();  
 		jsonObject.put("name","张三");  //jsonObject中的key不能改变只能修改value
-		jsonObject.put("sId","16161616"); 
-		jsonObject.put("rushId","666"); 
+		jsonObject.put("sId",1616); 
+		jsonObject.put("rushId",666); 
 		out.print(jsonObject.toString());
 		out.flush();
 		out.close();
@@ -656,8 +656,8 @@ public class TeacherController {
 		//该处将查找出的学生信息添加到jsonObject
 		JSONObject jsonObject=new JSONObject();  
 		jsonObject.put("name","张三");  //jsonObject中的key不能改变只能修改value
-		jsonObject.put("sId","16161616"); 
-		jsonObject.put("rushId","555"); 
+		jsonObject.put("sId",16161); 
+		jsonObject.put("rushId",555); 
 		out.print(jsonObject.toString());
 		out.flush();
 		out.close();
