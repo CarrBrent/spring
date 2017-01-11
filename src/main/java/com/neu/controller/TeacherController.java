@@ -40,7 +40,7 @@ public class TeacherController {
 	public void Finduserbyid(@RequestParam("tId")String tId,HttpServletRequest request,HttpServletResponse response) throws IOException{
 		PrintWriter out = response.getWriter();
 		JSONObject jsonObject=new JSONObject();  
-		jsonObject.put("tId", "123"); 
+		jsonObject.put("tId", "-1"); 
 		out.print(jsonObject.toString());
 		out.flush();
 		out.close();
